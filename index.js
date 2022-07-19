@@ -24,16 +24,18 @@ function getDiceRollArray(diceCount){
 //   return newDiceRolls;
 }
 
-function getDiceHtml(diceCount){
-   return getDiceRollArray(diceCount).map(num => `<div class="dice">${num}</div>`).join('');
-}
+
 
 function Character(data){
    
    Object.assign(this, data)
 
+   this.getDiceHtml = function(diceCount){
+      return getDiceRollArray(diceCount).map(num => `<div class="dice">${num}</div>`).join('');
+   }
+
    this.getCharacterHtml = function(){
-      const {id, name, avatar, health, diceCount} = this;
+      const {id, name, avatar, health, diceCount, getDiceHtml} = this;
       const diceHtml = getDiceHtml(diceCount);
       
       document.getElementById(id).innerHTML = 
