@@ -1,7 +1,3 @@
-
-
-
-
 const hero = {
    id : "hero",
    name : "Wizard",
@@ -33,11 +29,8 @@ function getDiceHtml(diceCount){
 }
 
 function Character(data){
-   this.id = data.id 
-   this.name = data.name
-   this.avatar = data.avatar
-   this.health = data.health
-   this.diceCount = data.diceCount
+   
+   Object.assign(this, data)
 
    this.getCharacterHtml = function(){
       const {id, name, avatar, health, diceCount} = this;
@@ -59,3 +52,4 @@ const wizard = new Character(hero);
 const orc = new Character(monster);
 wizard.getCharacterHtml();
 orc.getCharacterHtml();
+
