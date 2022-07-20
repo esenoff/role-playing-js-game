@@ -8,4 +8,8 @@ function getDiceRollArray(diceCount){
  //   return newDiceRolls;
  }
 
- export {getDiceRollArray};
+ function getDicePlaceholderHtml(diceCount){
+    return new Array(diceCount).fill(0).map(()=>`<div class="placeholder-dice"></div>`).join('')
+}
+
+ export {getDiceRollArray, getDicePlaceholderHtml};
